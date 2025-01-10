@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script>
+        async function handler() {
+            document.getElementById("data").innerHTML = "Caricamento..."
+
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+                .then(function (res) { return res.json() })
+
+            document.getElementById("data").innerHTML = ""
+            for (let i = 0; i < res.length; i++) {
+                document.getElementById("data").innerHTML += res[i].id + "<br />"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="handler()">
+        Scarica
+    </button>
+
+    <div id="data">
+
+    </div>
+</body>
+
+</html>
